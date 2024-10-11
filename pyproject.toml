@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "chirpnet"
+version = "0.0.1"
+description = ""
+authors = ["RobbeRDG <robbedegroeve@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cantopy = "^0.2.2"
+pandas = "^2.2.3"
+pydantic-settings = "^2.5.2"
+openpyxl = "^3.1.5"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,23 @@
+{
+	"name": "chirpnet",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"remoteUser": "root",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot", // Code assistant
+				"ms-python.python", // Python
+				"ms-toolsai.jupyter", // Jupyter
+				"visualstudioexptteam.vscodeintellicode", // Code completion
+				"ms-python.black-formatter", // Code formatter
+				"ms-python.pylint", // Linter
+				"njpwerner.autodocstring", // Docstring generation
+				"aaron-bond.better-comments", // Comment highlighting
+				"mhutchie.git-graph", // Visualize Git graphs
+			],
+		}
+	},
+	//"postStartCommand": "poetry install"
+}
