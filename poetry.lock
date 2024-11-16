@@ -42,13 +42,13 @@ test = ["astroid (>=1,<2)", "astroid (>=2,<4)", "pytest"]
 
 [[package]]
 name = "cantopy"
-version = "0.2.2"
+version = "0.2.4"
 description = "A XenoCanto API wrapper for Python"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "cantopy-0.2.2-py3-none-any.whl", hash = "sha256:d7af1d99d14e08bd259c7ba22b6ce77020e2308094d8659749d6706969823634"},
-    {file = "cantopy-0.2.2.tar.gz", hash = "sha256:f9e265aa576851b027c6f9a835bcb93560a9c39237db556d8ad3d823dbadc598"},
+    {file = "cantopy-0.2.4-py3-none-any.whl", hash = "sha256:0e9b6952cb7f9248e9a54fe5966ace1c39d32b6355c14db83b51e588b094f23e"},
+    {file = "cantopy-0.2.4.tar.gz", hash = "sha256:c726028b0432b46c435166b0852283606147b371a5c834878a28a5214e5ecff2"},
 ]
 
 [package.dependencies]
