@@ -61,11 +61,6 @@ class ChirpNetDownloader:
             "Common Name"
         ].values.tolist()
 
-        if not type(species_list) == list:  # type: ignore
-            raise ValueError(
-                f"Species list must be a list of strings. Got: {type(species_list)}."  # type: ignore
-            )
-
         # Filter out the already downloaded species
         species_list = cls._filter_already_downloaded_species(
             species_list, download_folder_path  # type: ignore
