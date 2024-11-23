@@ -202,6 +202,8 @@ class ChirpNetDownloader:
 
         """
 
+        print("Filtering out already downloaded species ...")
+
         metadata_folder_path = path.join(download_folder_path, "metadata")
 
         # Load the already downloaded species metadata
