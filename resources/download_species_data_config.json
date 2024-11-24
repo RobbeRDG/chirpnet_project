@@ -1,0 +1,7 @@
+{
+    "downloader_base_path": "/workspaces/chirpnet/data/chirpnet_downloader_data",
+    "species_list_path": "/workspaces/chirpnet/resources/species_list/european_species_list_short.csv",
+    "recorded_year": 2023,
+    "quality": "A",
+    "max_pages": 100
+}

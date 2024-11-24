@@ -3,11 +3,13 @@ import pandas as pd
 from os import path
 import os
 import shutil
+from prefect import flow, task  # type: ignore
 
 
 class ChirpNetDownloader:
 
     @classmethod
+    @flow
     def download_species_data(
         cls,
         species_list_path: str,
@@ -46,6 +48,10 @@ class ChirpNetDownloader:
                 f"Quality parameter must be one of 'A', 'B', or 'C'. Got: {quality}."
             )
 
+        print(
+            f"Starting species data download for year: {recorded_year}, quality: {quality}, max_pages: {max_pages} ..."
+        )
+
         download_manager, download_folder_path = cls._initialize_download_manager(
             species_list_path,
             recorded_year,
@@ -80,6 +86,7 @@ class ChirpNetDownloader:
         print("Download complete.")
 
     @staticmethod
+    @task
     def _initialize_download_manager(
         species_list_path: str,
         recorded_year: int,
@@ -136,6 +143,7 @@ class ChirpNetDownloader:
         return DownloadManager(download_folder_path), download_folder_path
 
     @staticmethod
+    @task
     def _initialize_metadata(
         species_list_path: str,
         download_folder_path: str,
@@ -180,6 +188,7 @@ class ChirpNetDownloader:
         )
 
     @staticmethod
+    @task
     def _filter_already_downloaded_species(
         species_list: list[str],
         download_folder_path: str,
@@ -222,6 +231,7 @@ class ChirpNetDownloader:
         )
 
     @staticmethod
+    @task
     def _download_single_species_data(
         download_manager: DownloadManager,
         species_name: str,
@@ -270,6 +280,7 @@ class ChirpNetDownloader:
         download_manager.download_all_recordings_in_queryresult(query_result)
 
     @staticmethod
+    @task
     def _update_already_downloaded_metadata(
         species_name: str,
         download_folder_path: str,
@@ -302,3 +313,4 @@ class ChirpNetDownloader:
         )
 
         already_downloaded.to_csv(already_downloaded_path, index=False)
+
