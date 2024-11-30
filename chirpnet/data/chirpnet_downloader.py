@@ -9,7 +9,7 @@ from prefect import flow, task  # type: ignore
 class ChirpNetDownloader:
 
     @classmethod
-    @flow
+    @flow(log_prints=True)
     def download_species_data(
         cls,
         species_list_path: str,
