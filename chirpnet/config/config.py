@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 
+
 class Config(BaseSettings):
     """
     A class to store the configuration of the Chirpnet project.
@@ -14,10 +15,10 @@ class Config(BaseSettings):
 
     """
 
-    PROJECT_BASE_DIR: str = "/workspaces/chirpnet"
+    PROJECT_BASE_DIR_PATH: str = "/workspaces/chirpnet"
 
     # Chirpnet downloader configurations
     DOWNLOADER_MAX_WORKERS: int = 4
 
     # data paths
-    BASE_COLLECTIONS_DIR: str = "/workspaces/chirpnet/data"
+    BASE_COLLECTIONS_DIR_PATH: str = "/workspaces/chirpnet/data"

@@ -16,7 +16,9 @@ def download_species_data():
 
     """
     with open(
-        join(Config.PROJECT_BASE_DIR, "resources/download_species_data_config.json")
+        join(
+            Config.PROJECT_BASE_DIR_PATH, "resources/download_species_data_config.json"
+        )
     ) as f:
         config = json.load(f)
 
