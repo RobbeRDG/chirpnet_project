@@ -18,3 +18,6 @@ class Config(BaseSettings):
 
     # Chirpnet downloader configurations
     DOWNLOADER_MAX_WORKERS: int = 4
+
+    # data paths
+    BASE_COLLECTIONS_DIR: str = "/workspaces/chirpnet/data"
