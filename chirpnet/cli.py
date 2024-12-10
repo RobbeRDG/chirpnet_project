@@ -3,7 +3,10 @@ from os.path import join
 from chirpnet.config import Config
 from chirpnet.data import ChirpNetDownloader
 
+from prefect import flow  # type: ignore
 
+
+@flow(log_prints=True)
 def download_species_data():
     """Download species data for a specific species list from the Xeno-Canto API.
 
