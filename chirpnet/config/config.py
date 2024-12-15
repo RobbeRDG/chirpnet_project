@@ -21,4 +21,4 @@ class Config(BaseSettings):
     DOWNLOADER_MAX_WORKERS: int = 4
 
     # data paths
-    BASE_COLLECTIONS_DIR_PATH: str = "/workspaces/chirpnet/data"
+    BASE_COLLECTIONS_DIR_PATH: str = "/workspaces/chirpnet/data/chirpnet_downloader_data"
