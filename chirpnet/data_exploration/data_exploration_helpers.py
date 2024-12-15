@@ -1,4 +1,4 @@
-import pandas as pd
+import polars as pl
 import os
 from glob import glob
 from os.path import join
@@ -6,14 +6,14 @@ from os.path import join
 
 def get_combined_full_species_metadata_across_collections(
     base_collections_dir_path: str,
-) -> pd.DataFrame:
+) -> pl.DataFrame:
     """
     Get the full species metadata of all species across all collections of species
     recordings.
 
     Returns
     -------
-    pd.DataFrame
+    pl.DataFrame
         The full species metadata across all collections.
 
     """
@@ -21,7 +21,7 @@ def get_combined_full_species_metadata_across_collections(
     collection_names = os.listdir(base_collections_dir_path)
 
     # Get the metadata for each collection
-    full_collections_metadata_list: list[pd.DataFrame] = []
+    full_collections_metadata_list: list[pl.DataFrame] = []
     for collection_name in collection_names:
         full_collections_metadata_list.append(
             get_full_species_metadata_for_collection(
@@ -29,10 +29,10 @@ def get_combined_full_species_metadata_across_collections(
             )
         )
 
-    return pd.concat(full_collections_metadata_list, axis=0)
+    return pl.concat(full_collections_metadata_list)
 
 
-def get_full_species_metadata_for_collection(collection_dir_path: str) -> pd.DataFrame:
+def get_full_species_metadata_for_collection(collection_dir_path: str) -> pl.DataFrame:
     """
     Get the full species metadata for a collection of species recordings.
 
@@ -43,7 +43,7 @@ def get_full_species_metadata_for_collection(collection_dir_path: str) -> pd.Dat
 
     Returns
     -------
-    pd.DataFrame
+    pl.DataFrame
         The full species metadata for the collection.
 
     """
@@ -54,7 +54,7 @@ def get_full_species_metadata_for_collection(collection_dir_path: str) -> pd.Dat
     # Remove the unneeded metadata directory
     species_dirs.remove("metadata")
 
-    full_species_metadata_list: list[pd.DataFrame] = []
+    full_species_metadata_list: list[pl.DataFrame] = []
     for species_dir in species_dirs:
         # Skip if empty directory
         if not os.listdir(join(collection_dir_path, species_dir)):
@@ -65,7 +65,7 @@ def get_full_species_metadata_for_collection(collection_dir_path: str) -> pd.Dat
         )[0]
 
         full_species_metadata_list.append(
-            pd.read_csv(species_metadata_path, index_col=None)  # type: ignore
+            pl.read_csv(species_metadata_path, infer_schema=False)  # type: ignore
         )
 
-    return pd.concat(full_species_metadata_list, axis=0)
+    return pl.concat(full_species_metadata_list)
