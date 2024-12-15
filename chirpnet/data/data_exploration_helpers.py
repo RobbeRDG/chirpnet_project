@@ -56,8 +56,12 @@ def get_full_species_metadata_for_collection(collection_dir_path: str) -> pd.Dat
 
     full_species_metadata_list: list[pd.DataFrame] = []
     for species_dir in species_dirs:
+        # Skip if empty directory
+        if not os.listdir(join(collection_dir_path, species_dir)):
+            continue
+
         species_metadata_path = glob(
-            f"{collection_dir_path}/{species_dir}/*_recording_metadata.csv"
+            join(collection_dir_path, species_dir, "*recording_metadata.csv")
         )[0]
 
         full_species_metadata_list.append(
