@@ -1,7 +1,7 @@
 import json
 from os.path import join
 from chirpnet.config import Config
-from chirpnet.data import ChirpNetDownloader
+from chirpnet.data_gathering import ChirpNetDownloader
 
 from prefect import flow  # type: ignore
 
