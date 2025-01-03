@@ -1,7 +1,7 @@
 import json
 from os.path import join
 from chirpnet.config import Config
-from chirpnet.data import ChirpNetDownloader
+from chirpnet.data_gathering import ChirpNetDownloader
 
 from prefect import flow  # type: ignore
 
@@ -16,7 +16,9 @@ def download_species_data():
 
     """
     with open(
-        join(Config.PROJECT_BASE_DIR, "resources/download_species_data_config.json")
+        join(
+            Config.PROJECT_BASE_DIR_PATH, "resources/download_species_data_config.json"
+        )
     ) as f:
         config = json.load(f)
 
