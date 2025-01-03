@@ -20,4 +20,7 @@
 		}
 	},
 	//"postStartCommand": "poetry install"
+	"mounts": [
+		"source=/mnt/robbe_cache_drive/datasets/personal/chirpnet,target=/workspaces/chirpnet/data,type=bind"
+	]
 }
