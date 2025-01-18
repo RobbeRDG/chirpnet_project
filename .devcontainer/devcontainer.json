@@ -14,8 +14,10 @@
 				"ms-python.black-formatter", // Code formatter
 				"ms-python.pylint", // Linter
 				"njpwerner.autodocstring", // Docstring generation
-				"aaron-bond.better-comments", // Comment highlighting
 				"mhutchie.git-graph", // Visualize Git graphs
+				"ms-python.isort", // Import sorting
+				"vivaxy.vscode-conventional-commits", // Conventional commits
+				"matangover.mypy", // Static type checker
 			],
 		}
 	},
