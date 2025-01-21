@@ -147,7 +147,7 @@ class ChirpNetDownloader:
     def _initialize_metadata(
         species_list_path: str,
         download_folder_path: str,
-    ):
+    ) -> None:
         """Initialize a metadata folder for a species list download request.
 
         The metadata folder contains the following files:

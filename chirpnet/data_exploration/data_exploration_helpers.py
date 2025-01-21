@@ -129,8 +129,8 @@ def extract_general_metadata_statistics(
     # statistics
     general_metadata_statistics = per_species_metadata_statistics.describe()
 
-    # Calculate the general metadata statistics
-    general_metadata_statistics = {
+    # Extract only the relevant metadata statistics
+    general_metadata_statistics_summary = {
         "total_species_recordings": general_metadata_statistics.filter(
             pl.col("statistic") == "max"
         )
@@ -273,7 +273,7 @@ def extract_general_metadata_statistics(
         .item(),
     }
 
-    return general_metadata_statistics
+    return general_metadata_statistics_summary
 
 
 def extract_per_species_metadata_statistics(

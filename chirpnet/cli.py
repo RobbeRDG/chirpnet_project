@@ -1,13 +1,13 @@
 import json
 from os.path import join
-from chirpnet.config import Config
+from chirpnet.config import CONFIG
 from chirpnet.data_gathering import ChirpNetDownloader
 
-from prefect import flow  # type: ignore
+from prefect import flow
 
 
 @flow(log_prints=True)
-def download_species_data():
+def download_species_data() -> None:
     """Download species data for a specific species list from the Xeno-Canto API.
 
     This function reads the configuration from the `download_species_data_config.json`
@@ -17,12 +17,12 @@ def download_species_data():
     """
     with open(
         join(
-            Config.PROJECT_BASE_DIR_PATH, "resources/download_species_data_config.json"
+            CONFIG.PROJECT_BASE_DIR_PATH, "resources/download_species_data_config.json"
         )
     ) as f:
         config = json.load(f)
 
-    ChirpNetDownloader.download_species_data(  # type: ignore
+    ChirpNetDownloader.download_species_data(
         config["species_list_path"],
         config["recorded_year"],
         config["quality"],
