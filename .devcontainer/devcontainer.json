@@ -17,7 +17,6 @@
 				"mhutchie.git-graph", // Visualize Git graphs
 				"ms-python.isort", // Import sorting
 				"vivaxy.vscode-conventional-commits", // Conventional commits
-				"matangover.mypy", // Static type checker
 			],
 		}
 	},
